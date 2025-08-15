@@ -94,4 +94,3 @@ This project is licensed under the **MIT License** — see the `LICENSE` file fo
 
 ---
 
-Let me know if you'd like to tailor the tone further or add more sections (e.g., FAQs, screenshots).
