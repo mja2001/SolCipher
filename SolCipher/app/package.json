@@ -1,0 +1,28 @@
+{
+  "name": "solcipher-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cleanup": "ts-node ../scripts/cleanup.ts"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@solana/web3.js": "^1.95.0",
+    "@project-serum/anchor": "^0.28.0",
+    "@solana/wallet-adapter-react": "^1.0.0",
+    "@solana/wallet-adapter-wallets": "^1.0.0",
+    "web3.storage": "^5.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4",
+    "vite": "^4.5.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "ts-node": "^10.9.1",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  }
+}

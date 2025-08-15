@@ -1,0 +1,9 @@
+[programs.localnet]
+solcipher = "SoLD0cs11111111111111111111111111111111111111"
+
+[provider]
+cluster = "localnet"
+wallet = "${ANCHOR_WALLET}"
+
+[scripts]
+cleanup = "scripts/cleanup.ts"
