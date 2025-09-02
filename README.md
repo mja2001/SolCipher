@@ -1,6 +1,6 @@
 # SolCipher – Secure Document Sharing on Solana
 
-Welcome to **SolCipher**, a privacy‑first dApp that lets you share documents securely between Solana wallets. Using client‑side AES‑GCM encryption, decentralized IPFS storage and on‑chain access control, SolCipher ensures that your sensitive files stay private — even as they traverse the public blockchain.
+Welcome to **SolCipher**, a privacy‑first dApp that lets you share documents securely between Solana wallets. Using client‑side AES‑256‑GCM encryption with SHA‑256‑derived keys, decentralized IPFS storage and on‑chain access control, SolCipher ensures that your sensitive files stay private — even as they traverse the public blockchain.
 
 ## 🚀 Why SolCipher?
 
@@ -20,7 +20,7 @@ SolCipher combines the best of cryptography, decentralized storage and smart con
 ```text
 User selects file(s) in the browser
     ↓ (derive key from wallet signature)
-Encrypt files using AES‑GCM
+Encrypt files using AES‑256‑GCM
     ↓
 Upload encrypted blobs & manifest to IPFS
     ↓
