@@ -5,7 +5,7 @@ SolCipher is a decentralised application (dApp) built on the Solana blockchain t
 
 ## Features
 
-* **End‑to‑End Encryption** – All files are encrypted in the browser using AES‑GCM before they ever leave the client【450654620246674†L11-L17】.
+* **End‑to‑End Encryption** – All files are encrypted in the browser using AES‑256‑GCM with keys derived via SHA‑256 before they ever leave the client【450654620246674†L11-L17】.
 * **Decentralised Storage** – Encrypted blobs (and batch manifest files) are stored on IPFS via Web3.Storage【450654620246674†L13-L18】.
 * **On‑Chain Access Control** – A Solana program written in Rust/Anchor stores document metadata, manages access lists and supports batch sharing.  Owners can grant and revoke access to specific wallet addresses and set expiry times.
 * **Wallet‑Based Sharing** – Documents are shared securely between Solana wallets; decryption keys are derived from a wallet signature and never stored on a server.  Only the intended recipient can decrypt the files.
@@ -22,7 +22,7 @@ SolCipher is a decentralised application (dApp) built on the Solana blockchain t
 └──────────────┘                                     └─────────────┘
         │                                               │
         │ 2. Sign message / derive key                 │ 3. Encrypt files in browser
-        ├──────────────────────────────────────────────▶│ (AES‑GCM)
+        ├──────────────────────────────────────────────▶│ (AES‑256‑GCM)
         │                                               │
         │ 4. Upload encrypted blobs to IPFS            │ 5. Upload manifest (batch)
         └──────────────────────────────────────────────▶│ (Web3.Storage)
@@ -52,7 +52,7 @@ SolCipher is a decentralised application (dApp) built on the Solana blockchain t
 | Blockchain   | **Solana**                | Fast, low‑cost smart‑contract execution                |
 | Smart‑Contract | **Rust + Anchor**        | Defines document/batch data structures & access logic  |
 | Frontend     | **React + Vite**          | Web UI for uploading, viewing and sharing documents    |
-| Encryption   | **Web Crypto API (AES‑GCM)** | Client‑side encryption and decryption                |
+| Encryption   | **Web Crypto API (AES‑256‑GCM)** | Client‑side encryption and decryption                |
 | Storage      | **IPFS via Web3.Storage** | Decentralised file hosting                             |
 | Wallet       | **Phantom + Wallet Adapter** | Authentication and key derivation                   |
 | Automation   | **Node.js Script**        | Scheduled access revocation                            |
@@ -162,7 +162,7 @@ SolCipher/
 ### Uploading Multiple Documents (Batch Share)
 
 1. Select multiple files in the **MultiFileUploader** component.
-2. A single AES key is derived from your wallet signature and used to encrypt all files.  Each file’s IV and metadata are recorded.
+2. A single AES‑256 key is derived via SHA‑256 from your wallet signature and used to encrypt all files.  Each file’s IV and metadata are recorded.
 3. Each encrypted file is uploaded to IPFS and the resulting CIDs are collected in a `manifest.json` file.
 4. The manifest is uploaded to IPFS and a `BatchShare` record is created on‑chain via the `create_batch_share` instruction【462778180827301†L0-L17】【879866446900270†L1-L14】.
 5. Recipients fetch the manifest, download all encrypted files and decrypt them using the same derived key.

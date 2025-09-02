@@ -6,7 +6,9 @@
  */
 export async function encryptFile(file: File, keyBytes: Uint8Array) {
   const iv = crypto.getRandomValues(new Uint8Array(12));
-  const key = await crypto.subtle.importKey('raw', keyBytes, 'AES-GCM', false, [
+  // Derive a 256-bit key from the provided bytes
+  const hashed = await crypto.subtle.digest('SHA-256', keyBytes);
+  const key = await crypto.subtle.importKey('raw', hashed, 'AES-GCM', false, [
     'encrypt',
   ]);
   const fileBuffer = await file.arrayBuffer();
@@ -29,7 +31,9 @@ export async function decryptFile(
   iv: Uint8Array
 ): Promise<Blob> {
   const encryptedBuffer = await encryptedBlob.arrayBuffer();
-  const key = await crypto.subtle.importKey('raw', keyBytes, 'AES-GCM', false, ['decrypt']);
+  // Use the same SHA-256 derivation as in encryptFile
+  const hashed = await crypto.subtle.digest('SHA-256', keyBytes);
+  const key = await crypto.subtle.importKey('raw', hashed, 'AES-GCM', false, ['decrypt']);
   const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, encryptedBuffer);
   return new Blob([decrypted]);
 }
