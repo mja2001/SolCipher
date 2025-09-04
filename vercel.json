@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/encrypt/:path*", "destination": "https://solcipher.online/:path*" },
+    { "source": "/share/:path*",   "destination": "https://solcipher.cloud/:path*" }
+  ],
+  "redirects": [
+    { "source": "/services", "destination": "/encrypt", "permanent": true }
+  ]
+}
