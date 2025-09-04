@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - SolCipher</title>
+  <link rel="canonical" href="https://solcipher.pro/pricing" />
+  <style>
+    .container{max-width:1120px;margin:0 auto;padding:64px 16px;text-align:center}
+    .sub{color:#6b7280;font-size:14px;margin-top:4px}
+    .grid{display:grid;gap:16px;margin-top:24px}
+    @media (min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:1024px){.grid{grid-template-columns:repeat(5,1fr)}}
+    .card{border:1px solid #e5e7eb;border-radius:16px;padding:20px;text-align:left}
+    .highlight{border-color:#111827;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .price{font-size:28px;font-weight:700;margin:8px 0}
+    .price span{font-size:12px;color:#6b7280;margin-left:2px}
+    ul{list-style:none;padding:0;margin:12px 0}
+    li{display:flex;gap:8px;margin:6px 0}
+    li::before{content:"\2713"}
+    .btn{display:block;text-align:center;margin-top:12px;padding:10px 14px;border-radius:12px;background:#f3f4f6}
+    .btn:hover{background:#e5e7eb}
+    .primary{background:#111827;color:#fff}
+    .foot{font-size:12px;color:#6b7280;margin-top:16px}
+  </style>
+</head>
+<body>
+<section class="container">
+  <h1>Choose your plan</h1>
+  <p class="sub">Cancel anytime. Taxes may apply.</p>
+  <div class="grid">
+    <!-- Free -->
+    <article class="card">
+      <h2>Free</h2>
+      <div class="price">$0<span>/mo</span></div>
+      <ul>
+        <li>1 GB storage</li><li>100 MB/file</li><li>2 links/day</li>
+        <li>7-day expiry</li><li>E2E encryption</li>
+      </ul>
+      <a class="btn" href="/signup">Start free</a>
+    </article>
+    <!-- Personal -->
+    <article class="card">
+      <h2>Personal</h2>
+      <div class="price">$6<span>/mo</span></div>
+      <ul>
+        <li>50 GB storage</li><li>2 GB/file</li><li>Unlimited links</li>
+        <li>30-day expiry</li><li>Email support</li>
+      </ul>
+      <a class="btn" href="/checkout?plan=personal">Go Personal</a>
+    </article>
+    <!-- Pro (highlight) -->
+    <article class="card highlight">
+      <h2>Pro</h2>
+      <div class="price">$14<span>/mo</span></div>
+      <ul>
+        <li>200 GB storage</li><li>5 GB/file</li><li>Custom expiry</li>
+        <li>Versioning</li><li>Priority support</li>
+      </ul>
+      <a class="btn primary" href="/checkout?plan=pro">Upgrade to Pro</a>
+    </article>
+    <!-- Team -->
+    <article class="card">
+      <h2>Team</h2>
+      <div class="price">$49<span>/mo</span></div>
+      <ul>
+        <li>1 TB pooled</li><li>10 seats</li><li>10 GB/file</li>
+        <li>Roles & audit log</li><li>API access</li>
+      </ul>
+      <a class="btn" href="/checkout?plan=team">Start Team</a>
+    </article>
+    <!-- Enterprise -->
+    <article class="card">
+      <h2>Enterprise</h2>
+      <div class="price">Custom</div>
+      <ul>
+        <li>SSO/SAML + SCIM</li><li>BYOK / on-prem KMS</li>
+        <li>DPA & 99.9% SLA</li><li>Named TAM</li>
+      </ul>
+      <a class="btn" href="/contact?topic=enterprise">Request a quote</a>
+    </article>
+  </div>
+  <p class="foot">Need crypto payments or annual billing? <a href="/contact">Contact sales</a>.</p>
+</section>
+</body>
+</html>
